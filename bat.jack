@@ -1,84 +1,98 @@
-class Bat {
-
+class Bat 
+{
     field int x, y;
     field int width, height;
     field int direction;
 
-    constructor Bat new(int Ax, int Ay, int Awidth, int Aheight) {
-	let x = Ax;
-	let y = Ay;
-	let width = Awidth;
-	let height = Aheight;
-	let direction = 2;
+    constructor Bat new(int Ax, int Ay, int Awidth, int Aheight) 
+    {
+        let x = Ax;
+        let y = Ay;
+        let width = Awidth;
+        let height = Aheight;
+        let direction = 2;
 
         do show();
 
         return this;
     }
 
-    method void dispose() {
+    method void dispose() 
+    {
         do Memory.deAlloc(this);
         return;
     }
 
-    method void show() {
+    method void show() 
+    {
         do Screen.setColor(true);
-	do draw();
+	    do draw();  
         return;
     }
 
-    method void hide() {
+    method void hide() 
+    {
         do Screen.setColor(false);
-	do draw();
+	    do draw();
         return;
     }
 
-    method void draw() {
-	do Screen.drawRectangle(x, y, x + width, y + height);
-	return;
-    }
-
-    method void setDirection(int Adirection) {
-	let direction = Adirection;
+    method void draw() 
+    {
+        do Screen.drawRectangle(x, y, x + width, y + height);
         return;
     }
 
-    method int getLeft() {
+    method void setDirection(int Adirection) 
+    {
+	    let direction = Adirection;
+        return;
+    }
+
+    method int getLeft() 
+    {
         return x;
     }
 
-    method int getRight() {
+    method int getRight() 
+    {
         return x + width;
     }
 
-    method void setWidth(int Awidth) {
+    method void setWidth(int Awidth) 
+    {
         do hide();
-	let width = Awidth;
+	    let width = Awidth;
         do show();
         return;
     }
 
-    method void move() {
-	if (direction = 1) {
+    method void move() 
+    {
+	    if (direction = 1) 
+        {
             let y = y - 4;
-	    if (y < 0) {
-		let y = 0;
-    	    }
+            if (y < 0) 
+            {
+                let y = 0;
+            }
             do Screen.setColor(false);
             do Screen.drawRectangle((x + width) + 1, y, (x + width) + 4, y + height);
             do Screen.setColor(true);
-   	    do Screen.drawRectangle(x, y, x + 3, y + height);
-	} 
-	else {
+            do Screen.drawRectangle(x, y, x + 3, y + height);
+	    } 
+        else 
+        {
             let y = y + 4;
-	    if ((y + height) > 255) {
-		let y = 255 - height;
-  	    }
+            if ((y + height) > 255) 
+            {
+                let y = 255 - height;
+            }
             do Screen.setColor(false);
             do Screen.drawRectangle(x - 4, y, x - 1, y + height);
             do Screen.setColor(true);
-	    do Screen.drawRectangle((x + width) - 3, y, x + width, y + height);
-	}
+            do Screen.drawRectangle((x + width) - 3, y, x + width, y + height);
+        }
 
         return;
     }
