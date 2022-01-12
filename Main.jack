@@ -1,7 +1,11 @@
-class Main {
-    function void main(){
-        var Tetrisgame game;
-        let game = Tetrisgame.new();
+class Main{
+    function void main (){
+        var ponggame game;
+        do ponggame.new;
+        let game = ponggame.newgame();
+        do game.run();
+        do game.dispose();
+
         return;
     }
 }
