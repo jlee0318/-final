@@ -62,7 +62,7 @@ def draw(win, grid, rows, width):
     pygame.display.update()
 
 def main(win, width):
-    ROWS = 50
+    ROWS = 25
     grid = make_grid(ROWS, width)
 
     run = True
@@ -74,5 +74,5 @@ def main(win, width):
 
     pygame.quit()
 
-main(WIN, 800)
+main(WIN, 1000)
 
