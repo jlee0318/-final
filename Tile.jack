@@ -1,0 +1,52 @@
+class Tile
+{
+    field int x, y;   // x and y are scaled to 8 pixel each
+    static int size;
+    let size = 8;
+
+    constructor Tile new(int Ax, int Ay)
+    {
+        let x = Ax;
+        let y = Ay;
+        do draw();
+        return this;
+    }
+
+    method void draw()
+    {
+        do Screen.setColor(true);
+        do Screen.drawRectangle(x*8, y*8, (x*8)+size, (y*8)+size);
+        return;
+    }
+
+    method void erase() 
+    {
+        do Screen.setColor(false);
+        do Screen.drawRectangle(x*8, y*8, (x*8) + size, (y*8) + size);
+        return;
+   }
+
+    method void move_left()
+    {
+        do erase();
+        let x = x - 1;
+        do draw()
+        return;
+    }
+
+    method void move_right()
+    {
+        do erase();
+        let x = x + 1;
+        do draw()
+        return;
+    }
+
+    method void move_down()
+    {
+        do erase();
+        let y = y + 1;
+        do draw();
+        return;
+    }
+}
