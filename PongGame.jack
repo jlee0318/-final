@@ -50,7 +50,7 @@ class PongGame {
         var char key;
 
         while (~exit) {
-            do ball.draw();
+            do ball.move();
             while ((key = 0) & ~(exit)){
                 let key = Keyboard.keyPressed();
                 do bat1.move();
