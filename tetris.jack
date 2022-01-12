@@ -1,9 +1,7 @@
-#lololol
-testtest
-aaaaa
-<<<<<<< HEAD
-asdkfadflj
-=======
-asdasdasdda
->>>>>>> 3879b96379ba7ffd1f8b17097b05b5ee4c9803f1
-asdfasdf
+class Main {
+    function void main(){
+        var Tetrisgame game;
+        let game = Tetrisgame.new();
+        return;
+    }
+}
