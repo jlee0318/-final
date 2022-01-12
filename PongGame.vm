@@ -1,25 +1,29 @@
 function PongGame.new 0
-push constant 8
+push constant 9
 call Memory.alloc 1
 pop pointer 0
 call Screen.clearScreen 0
 pop temp 0
 push constant 7
-pop this 6
-push constant 50
 pop this 7
+push constant 50
+pop this 8
 push constant 0
 push constant 0
-push this 6
 push this 7
+push this 8
 call Bat.new 4
 pop this 0
 push constant 504
 push constant 0
-push this 6
 push this 7
+push this 8
 call Bat.new 4
 pop this 1
+push constant 256
+push constant 128
+call Ball.new 2
+pop this 2
 push constant 0
 push constant 238
 push constant 511
@@ -51,13 +55,13 @@ call String.appendChar 2
 call Output.printString 1
 pop temp 0
 push constant 0
-pop this 3
-push constant 0
 pop this 4
 push constant 0
-pop this 2
-push constant 0
 pop this 5
+push constant 0
+pop this 3
+push constant 0
+pop this 6
 push pointer 0
 return
 function PongGame.dispose 0
@@ -82,15 +86,18 @@ function PongGame.run 1
 push argument 0
 pop pointer 0
 label WHILE_EXP0
-push this 3
+push this 4
 not
 not
 if-goto WHILE_END0
+push this 2
+call Ball.draw 1
+pop temp 0
 label WHILE_EXP1
 push local 0
 push constant 0
 eq
-push this 3
+push this 4
 not
 and
 not
@@ -161,7 +168,7 @@ goto IF_FALSE4
 label IF_TRUE4
 push constant 0
 not
-pop this 3
+pop this 4
 label IF_FALSE4
 label IF_END3
 label IF_END2
@@ -172,7 +179,7 @@ push local 0
 push constant 0
 eq
 not
-push this 3
+push this 4
 not
 and
 not
@@ -189,7 +196,7 @@ goto WHILE_EXP2
 label WHILE_END2
 goto WHILE_EXP0
 label WHILE_END0
-push this 3
+push this 4
 if-goto IF_TRUE5
 goto IF_FALSE5
 label IF_TRUE5

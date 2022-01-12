@@ -8,7 +8,7 @@ class Ball
     {
         let x = Ax;
         let y = Ay;
-        let size = 5;
+        let size = 8;
         let dx = 1;
         let dy = 0;
         do draw();
