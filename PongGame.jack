@@ -50,11 +50,12 @@ class PongGame {
         var char key;
 
         while (~exit) {
-            do ball.move();
+            
             while ((key = 0) & ~(exit)){
                 let key = Keyboard.keyPressed();
                 do bat1.move();
                 do bat2.move();
+                do ball.move();
             }
 
             if (key = 131) {
