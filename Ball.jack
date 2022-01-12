@@ -1,0 +1,89 @@
+class Ball
+{
+    field int x, y, size;
+
+    field int dx, dy;
+
+    constructor Ball new(int Ax, int Ay)
+    {
+        let x = Ax;
+        let y = Ay;
+        let size = 5;
+        let dx = 1;
+        let dy = 0;
+        do draw();
+        return this;
+    }
+
+    method void dispose()
+    {
+        do Memory.deAlloc(this);
+        return;
+    }
+
+    method void draw()
+    {
+        do Screen.setColor(true);
+        do Screen.drawRectangle(x, y, x+size, y+size);
+        return;
+    }
+
+    method void erase() 
+    {
+        do Screen.setColor(false);
+        do Screen.drawRectangle(x, y, x + size, y + size);
+        return;
+    }
+
+    method int getX()
+    {
+        return x;
+    }
+
+    method int getY()
+    {
+        return y;
+    }
+
+    method void move()  // topleft 0, left 1, botleft 2, topright 3, right 4, botright 5
+    {
+        do erase();
+        let x = x + dx;
+        let y = y + dy;
+        do draw();
+        return;
+    }
+
+    method void bounce(int wall, int baty)  // 1 for top wall, 2 for bottom wall, 3 for bat
+    {
+        if(wall = 1)
+        {
+            let dy = 1;
+        }
+
+        if(wall = 2)
+        {
+            let dy = -1;
+        }
+
+        if(wall = 3)
+        {
+            let x = Math.multiply(x, -1);
+            if(y < (baty + 20))
+            {
+                let dy = -1;
+            }
+
+            if((y > (baty + 20)) & y < (baty + 40))
+            {
+                let dy = 0;
+            }
+
+            if(y > (baty + 40))
+            {
+                let dy = 1;
+            }
+        }
+        return;
+    }
+}
