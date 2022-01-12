@@ -85,12 +85,8 @@ not
 not
 if-goto WHILE_END0
 label WHILE_EXP1
-push local 0
-push constant 0
-eq
 push this 3
 not
-and
 not
 if-goto WHILE_END1
 call Keyboard.keyPressed 0
@@ -104,7 +100,7 @@ pop temp 0
 goto WHILE_EXP1
 label WHILE_END1
 push local 0
-push constant 38
+push constant 130
 eq
 if-goto IF_TRUE0
 goto IF_FALSE0
@@ -116,7 +112,7 @@ pop temp 0
 goto IF_END0
 label IF_FALSE0
 push local 0
-push constant 40
+push constant 132
 eq
 if-goto IF_TRUE1
 goto IF_FALSE1
@@ -140,23 +136,12 @@ label IF_FALSE2
 label IF_END1
 label IF_END0
 label WHILE_EXP2
-push local 0
-push constant 0
-eq
-not
 push this 3
 not
-and
 not
 if-goto WHILE_END2
 call Keyboard.keyPressed 0
 pop local 0
-push this 0
-call Bat.move 1
-pop temp 0
-push this 1
-call Bat.move 1
-pop temp 0
 goto WHILE_EXP2
 label WHILE_END2
 goto WHILE_EXP0

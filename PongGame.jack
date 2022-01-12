@@ -1,37 +1,13 @@
-// This file is part of www.nand2tetris.org
-// and the book "The Elements of Computing Systems"
-// by Nisan and Schocken, MIT Press.
-// File name: projects/11/Pong/PongGame.jack
-
-/**
- * The Pong game.
- */
 class PongGame {
-
-    // The singlton 
     static PongGame instance;
-
-    // The bat
     field Bat bat1;
     field Bat bat2;
-
-
-    // The current wall that the ball is bouncing from.
     field int wall;
-
-    // True when the game is over
     field boolean exit;
-
-    // The current score.
     field int score;
-
-    // The last wall that the ball bounced from.
     field int lastWall;
-
-    // The current width of the bat
     field int batWidth;
 
-    /** Constructs a new Pong Game. */
     constructor PongGame new() {
         do Screen.clearScreen();
 
@@ -51,42 +27,36 @@ class PongGame {
         return this;
     }
 
-    /** Deallocates the object's memory. */
     method void dispose() {
         do bat.dispose();
         do Memory.deAlloc(this);
         return;
     }
 
-    /** Creates an instance of PongGame and stores it. */
     function void newInstance() {
         let instance = PongGame.new();
         return;
     }
     
-    /** Returns the single instance of PongGame. */
     function PongGame getInstance() {
         return instance;
     }
 
-    /** Starts the game. Handles inputs from the user that control
-     *  the bat's movement direction. */
     method void run() {
         var char key;
 
         while (~exit) {
-            // waits for a key to be pressed.
-            while ((key = 0) & (~exit)) {
+            while (~exit) {
                 let key = Keyboard.keyPressed();
                 do bat1.move();
                 do bat2.move();
             }
 
-            if (key = 38) {
+            if (key = 130) {
 	            do bat1.setDirection(2);
                 }
 	        else {
-                if (key = 40) {
+                if (key = 132) {
                     do bat1.setDirection(2);
                 }
                 else {
@@ -97,10 +67,8 @@ class PongGame {
             }
 
             // Waits for the key to be released.
-            while ((~(key = 0)) & (~exit)) {
+            while ((~exit)) {
                 let key = Keyboard.keyPressed();
-                do bat1.move();
-                do bat2.move();
             }
         }
 
