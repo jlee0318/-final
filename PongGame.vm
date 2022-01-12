@@ -8,13 +8,13 @@ push constant 7
 pop this 6
 push constant 50
 pop this 7
-push constant 10
+push constant 0
 push constant 0
 push this 6
 push this 7
 call Bat.new 4
 pop this 0
-push constant 400
+push constant 504
 push constant 0
 push this 6
 push this 7
@@ -106,7 +106,7 @@ pop temp 0
 goto WHILE_EXP1
 label WHILE_END1
 push local 0
-push constant 130
+push constant 131
 eq
 if-goto IF_TRUE0
 goto IF_FALSE0
@@ -118,7 +118,7 @@ pop temp 0
 goto IF_END0
 label IF_FALSE0
 push local 0
-push constant 131
+push constant 133
 eq
 if-goto IF_TRUE1
 goto IF_FALSE1
@@ -142,7 +142,7 @@ pop temp 0
 goto IF_END2
 label IF_FALSE2
 push local 0
-push constant 133
+push constant 130
 eq
 if-goto IF_TRUE3
 goto IF_FALSE3

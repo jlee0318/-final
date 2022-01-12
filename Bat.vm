@@ -103,9 +103,6 @@ eq
 if-goto IF_TRUE0
 goto IF_FALSE0
 label IF_TRUE0
-push pointer 0
-call Bat.erase 1
-pop temp 0
 push this 1
 push constant 4
 sub
@@ -119,14 +116,41 @@ label IF_TRUE1
 push constant 0
 pop this 1
 label IF_FALSE1
-push pointer 0
-call Bat.draw 1
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push this 0
+push this 1
+push this 3
+add
+push constant 1
+add
+push this 0
+push this 2
+add
+push this 1
+push this 3
+add
+push constant 4
+add
+call Screen.drawRectangle 4
+pop temp 0
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push this 0
+push this 1
+push this 0
+push this 2
+add
+push this 1
+push constant 3
+add
+call Screen.drawRectangle 4
 pop temp 0
 goto IF_END0
 label IF_FALSE0
-push pointer 0
-call Bat.erase 1
-pop temp 0
 push this 1
 push constant 4
 add
@@ -144,8 +168,38 @@ push this 3
 sub
 pop this 1
 label IF_FALSE2
-push pointer 0
-call Bat.draw 1
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push this 0
+push this 1
+push constant 4
+sub
+push this 0
+push this 2
+add
+push this 1
+push constant 1
+sub
+call Screen.drawRectangle 4
+pop temp 0
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push this 0
+push this 1
+push this 2
+add
+push constant 3
+sub
+push this 0
+push this 2
+add
+push this 1
+push this 3
+add
+call Screen.drawRectangle 4
 pop temp 0
 label IF_END0
 push constant 0
