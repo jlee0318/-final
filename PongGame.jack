@@ -5,7 +5,7 @@ class PongGame {
     field Ball ball;
     field int wall;
     field boolean exit;
-    field int score;
+    field int score1, score2;
     field int lastWall;
     field int batWidth;
     field int batheight;
@@ -19,12 +19,12 @@ class PongGame {
         let bat2 = Bat.new(504, 0, batWidth, batheight);
         let ball = Ball.new(256, 128);
 
-        do Screen.drawRectangle(0, 238, 511, 240);
         do Output.moveCursor(22,0);
         do Output.printString("Score: 0");
         
         let exit = false;
-        let score = 0;
+        let score1 = 0;
+        let score2 = 0;
         let wall = 0;
         let lastWall = 0;
 
@@ -50,11 +50,12 @@ class PongGame {
         var char key;
 
         while (~exit) {
-            do ball.draw();
+            
             while ((key = 0) & ~(exit)){
                 let key = Keyboard.keyPressed();
                 do bat1.move();
                 do bat2.move();
+                do ball.move();
             }
 
             if (key = 131) {
