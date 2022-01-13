@@ -64,7 +64,7 @@ class PongGame {
                     let batY = bat2.getY();
                     do ball.bounce(3, batY);
                 }
-                if (ballX < (ball.getSize() + bat1.getWidth()))
+                if (ballX < bat1.getWidth())
                 {
                     let batY = bat1.getY();
                     do ball.bounce(3, batY);
