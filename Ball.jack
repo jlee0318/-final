@@ -17,6 +17,7 @@ class Ball
 
     method void dispose()
     {
+        do erase();
         do Memory.deAlloc(this);
         return;
     }
@@ -48,6 +49,12 @@ class Ball
     method int getSize()
     {
         return size;
+    }
+
+    method void set_dx(int Adx)
+    {
+        let dx = Adx;
+        return;
     }
 
     method void move()  // topleft 0, left 1, botleft 2, topright 3, right 4, botright 5

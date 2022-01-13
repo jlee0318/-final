@@ -18,10 +18,7 @@ class PongGame {
         let batheight = 50;
         let bat1 = Bat.new(0, 0, batWidth, batheight);
         let bat2 = Bat.new(505, 0, batWidth, batheight);
-        let ball = Ball.new(256, 128, 8);
-
-        // do Output.moveCursor(22,0);
-        // do Output.printString("Score1: 0");
+        let ball = Ball.new(252, 124, 8);
         
         let exit = false;
         let score1 = 0;
@@ -65,6 +62,23 @@ class PongGame {
         return;
     }
 
+    method void resetBall(int winner)
+    {
+        do ball.dispose();
+        let ball = Ball.new(252, 124, 8);
+        if (winner = 1)
+        {
+            do ball.set_dx(-1);
+        }
+        if (winner = 2)
+        {
+            do ball.set_dx(1);
+        }
+        do Sys.wait(500);
+
+        return;
+    }
+
     method void run() {
         var char key;
 
@@ -99,10 +113,12 @@ class PongGame {
                 if ((ballX + ball.getSize()) = 512)
                 {
                     do updateScore(1);
+                    do resetBall(1);
                 }
                 if (ballX = 0)
                 {
                     do updateScore(2);
+                    do resetBall(2);
                 }
             }
 
@@ -159,10 +175,12 @@ class PongGame {
                 if ((ballX + ball.getSize()) = 512)
                 {
                     do updateScore(1);
+                    do resetBall(1);
                 }
                 if (ballX = 0)
                 {
                     do updateScore(2);
+                    do resetBall(2);
                 }
             }
 
