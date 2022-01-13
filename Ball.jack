@@ -24,14 +24,14 @@ class Ball
     method void draw()
     {
         do Screen.setColor(true);
-        do Screen.drawRectangle(x, y, x+size, y+size);
+        do Screen.drawRectangle(x, y, x + size - 1, y + size - 1);
         return;
     }
 
     method void erase() 
     {
         do Screen.setColor(false);
-        do Screen.drawRectangle(x, y, x + size, y + size);
+        do Screen.drawRectangle(x, y, x + size - 1, y + size - 1);
         return;
     }
 
@@ -61,6 +61,10 @@ class Ball
         {let x = 0;}
 
         let y = y + dy;
+        if(y < 0)
+        {let y = 0;}
+        if((y + size) > 255)
+        {let y = (255 - size);}
 
         do draw();
         return;
