@@ -1,4 +1,4 @@
-lass Bat 
+class Bat 
 {
     field int x, y;
     field int width, height;

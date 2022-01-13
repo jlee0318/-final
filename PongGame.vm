@@ -29,7 +29,7 @@ push constant 22
 push constant 0
 call Output.moveCursor 2
 pop temp 0
-push constant 8
+push constant 9
 call String.new 1
 push constant 83
 call String.appendChar 2
@@ -40,6 +40,8 @@ call String.appendChar 2
 push constant 114
 call String.appendChar 2
 push constant 101
+call String.appendChar 2
+push constant 49
 call String.appendChar 2
 push constant 58
 call String.appendChar 2
@@ -183,7 +185,7 @@ label IF_FALSE3
 goto WHILE_EXP1
 label WHILE_END1
 push local 0
-push constant 131
+push constant 87
 eq
 if-goto IF_TRUE4
 goto IF_FALSE4
@@ -195,7 +197,7 @@ pop temp 0
 goto IF_END4
 label IF_FALSE4
 push local 0
-push constant 133
+push constant 83
 eq
 if-goto IF_TRUE5
 goto IF_FALSE5
@@ -207,7 +209,7 @@ pop temp 0
 goto IF_END5
 label IF_FALSE5
 push local 0
-push constant 132
+push constant 131
 eq
 if-goto IF_TRUE6
 goto IF_FALSE6
@@ -219,7 +221,7 @@ pop temp 0
 goto IF_END6
 label IF_FALSE6
 push local 0
-push constant 130
+push constant 133
 eq
 if-goto IF_TRUE7
 goto IF_FALSE7
