@@ -17,7 +17,7 @@ class PongGame {
         let batWidth = 7;
         let batheight = 50;
         let bat1 = Bat.new(0, 0, batWidth, batheight);
-        let bat2 = Bat.new(504, 0, batWidth, batheight);
+        let bat2 = Bat.new(505, 0, batWidth, batheight);
         let ball = Ball.new(256, 128, 8);
 
         do Output.moveCursor(22,0);
