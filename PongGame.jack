@@ -59,12 +59,12 @@ class PongGame {
                 do ball.move();
                 do Sys.wait(5);
                 let ballX = ball.getX();
-                if (ballX > (512 - ball.getSize() - bat2.getWidth()))
+                if (ballX = (512 - ball.getSize() - bat2.getWidth()))
                 {
                     let batY = bat2.getY();
                     do ball.bounce(3, batY);
                 }
-                if (ballX < bat1.getWidth())
+                if (ballX = bat1.getWidth())
                 {
                     let batY = bat1.getY();
                     do ball.bounce(3, batY);
@@ -111,10 +111,24 @@ class PongGame {
                 do ball.move();
                 do Sys.wait(5);
                 let ballX = ball.getX();
-                if (ballX > (512 - ball.getSize() - bat2.getWidth()))
+                if (ballX = (512 - ball.getSize() - bat2.getWidth()))
                 {
                     let batY = bat2.getY();
                     do ball.bounce(3, batY);
+                }
+                if (ballX = bat1.getWidth())
+                {
+                    let batY = bat1.getY();
+                    do ball.bounce(3, batY);
+                }
+                let ballY = ball.getY();
+                if (ballY = 0)
+                {
+                    do ball.bounce(1, 0);  // batY is not needed
+                }
+                if ((ballY + ball.getSize()) = 255)
+                {
+                    do ball.bounce(2, 0);  // batY is not needed
                 }
             }
 

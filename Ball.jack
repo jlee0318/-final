@@ -84,19 +84,21 @@ class Ball
 
         if(wall = 3)
         {
-            let dx = -dx;
-            if((y > baty) & (y < (baty + 20)))
+            if((y + size > baty) & (y < (baty + 16)))
             {
+                let dx = -dx;
                 let dy = -1;
             }
 
-            if((y > (baty + 20)) & (y < (baty + 30)))
+            if((y > (baty + 15)) & (y < (baty + 26)))
             {
+                let dx = -dx;
                 let dy = 0;
             }
 
-            if((y > (baty + 30)) & (y < (baty + 50)))
+            if((y > (baty + 25)) & (y < (baty + 50)))
             {
+                let dx = -dx;
                 let dy = 1;
             }
         }
