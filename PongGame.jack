@@ -120,6 +120,10 @@ class PongGame {
                     do updateScore(2);
                     do resetBall(2);
                 }
+
+                if (score1 > 5 | score2 > 5){
+                    let exit = true;
+                }
             }
 
             if (key = 87) {
@@ -182,8 +186,11 @@ class PongGame {
                     do updateScore(2);
                     do resetBall(2);
                 }
-            }
 
+                if (score1 > 5 | score2 > 5){
+                    let exit = true;
+                }
+            }
         }
 
 	    if (exit) {
