@@ -4,11 +4,11 @@ class Ball
 
     field int dx, dy;
 
-    constructor Ball new(int Ax, int Ay)
+    constructor Ball new(int Ax, int Ay, int ballSize)
     {
         let x = Ax;
         let y = Ay;
-        let size = 8;
+        let size = ballSize;
         let dx = 1;
         let dy = 0;
         do draw();
@@ -45,6 +45,11 @@ class Ball
         return y;
     }
 
+    method int getSize()
+    {
+        return size;
+    }
+
     method void move()  // topleft 0, left 1, botleft 2, topright 3, right 4, botright 5
     {
         do erase();
@@ -61,7 +66,7 @@ class Ball
         return;
     }
 
-    method void bounce(int wall, int baty)  // 1 for top wall, 2 for bottom wall, 3 for bat
+    method void bounce(int wall, int baty)  // 1 for top wall, 2 for bottom wall, 3 for bat/left/right wall
     {
         if(wall = 1)
         {
@@ -76,17 +81,17 @@ class Ball
         if(wall = 3)
         {
             let dx = -dx;
-            if(y < (baty + 20))
+            if((y > baty) & (y < (baty + 20)))
             {
                 let dy = -1;
             }
 
-            if((y > (baty + 20)) & y < (baty + 40))
+            if((y > (baty + 20)) & (y < (baty + 30)))
             {
                 let dy = 0;
             }
 
-            if(y > (baty + 40))
+            if((y > (baty + 30)) & (y < (baty + 50)))
             {
                 let dy = 1;
             }

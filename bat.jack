@@ -43,14 +43,14 @@ class Bat
         return;
     }
 
-    method int getLeft() 
+    method int getY()
     {
-        return x;
+        return y;
     }
 
-    method int getRight() 
+    method int getWidth()
     {
-        return x + width;
+        return width;
     }
 
     method void setWidth(int Awidth) 
