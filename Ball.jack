@@ -48,8 +48,15 @@ class Ball
     method void move()  // topleft 0, left 1, botleft 2, topright 3, right 4, botright 5
     {
         do erase();
+
         let x = x + dx;
+        if(x > 504)
+        {let x = 504;}
+        if(x < 0)
+        {let x = 0;}
+
         let y = y + dy;
+
         do draw();
         return;
     }
@@ -68,7 +75,7 @@ class Ball
 
         if(wall = 3)
         {
-            let x = Math.multiply(x, -1);
+            let dx = -dx;
             if(y < (baty + 20))
             {
                 let dy = -1;

@@ -65,27 +65,27 @@ class Bat
     {
 	    if (direction = 1) 
         {
-            let y = y - 4;
+            let y = y - 2;
             if (y < 0) 
             {
                 let y = 0;
             }
             do Screen.setColor(false);
-            do Screen.drawRectangle(x, (y + height) + 1, x + width, (y + height) + 4);
+            do Screen.drawRectangle(x, (y + height) + 1, x + width, (y + height) + 2);
             do Screen.setColor(true);
-   	        do Screen.drawRectangle(x, y, x + width, y + 3);
+   	        do Screen.drawRectangle(x, y, x + width, y + 1);
 	    } 
         else 
         {
-            let y = y + 4;
+            let y = y + 2;
             if ((y + height) > 255) 
             {
                 let y = 255 - height;
             }
             do Screen.setColor(false);
-            do Screen.drawRectangle(x, y - 4, x + width, y - 1);
+            do Screen.drawRectangle(x, y - 2, x + width, y - 1);
             do Screen.setColor(true);
-	        do Screen.drawRectangle(x, y + width - 3, x + width, y + height);
+	        do Screen.drawRectangle(x, y + height - 1, x + width, y + height);
         }
 
         return;
