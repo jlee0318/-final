@@ -9,6 +9,7 @@ class PongGame {
     field int lastWall;
     field int batWidth;
     field int batheight;
+    field int ballX, ballY, batY;
 
     constructor PongGame new() {
         do Screen.clearScreen();
@@ -17,7 +18,7 @@ class PongGame {
         let batheight = 50;
         let bat1 = Bat.new(0, 0, batWidth, batheight);
         let bat2 = Bat.new(504, 0, batWidth, batheight);
-        let ball = Ball.new(256, 128);
+        let ball = Ball.new(256, 128, 8);
 
         do Output.moveCursor(22,0);
         do Output.printString("Score: 0");
@@ -56,6 +57,27 @@ class PongGame {
                 do bat1.move();
                 do bat2.move();
                 do ball.move();
+                do Sys.wait(5);
+                let ballX = ball.getX();
+                if (ballX > (512 - ball.getSize() - bat2.getWidth()))
+                {
+                    let batY = bat2.getY();
+                    do ball.bounce(3, batY);
+                }
+                if (ballX < bat1.getWidth())
+                {
+                    let batY = bat1.getY();
+                    do ball.bounce(3, batY);
+                }
+                let ballY = ball.getY();
+                if (ballY = 0)
+                {
+                    do ball.bounce(1, 0);  // batY is not needed
+                }
+                if ((ballY + ball.getSize()) = 255)
+                {
+                    do ball.bounce(2, 0);  // batY is not needed
+                }
             }
 
             if (key = 131) {
@@ -86,6 +108,14 @@ class PongGame {
                 let key = Keyboard.keyPressed();
                 do bat1.move();
                 do bat2.move();
+                do ball.move();
+                do Sys.wait(5);
+                let ballX = ball.getX();
+                if (ballX > (512 - ball.getSize() - bat2.getWidth()))
+                {
+                    let batY = bat2.getY();
+                    do ball.bounce(3, batY);
+                }
             }
 
         }

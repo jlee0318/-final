@@ -6,7 +6,7 @@ push argument 0
 pop this 0
 push argument 1
 pop this 1
-push constant 8
+push argument 2
 pop this 2
 push constant 1
 pop this 3
@@ -37,9 +37,13 @@ push this 1
 push this 0
 push this 2
 add
+push constant 1
+sub
 push this 1
 push this 2
 add
+push constant 1
+sub
 call Screen.drawRectangle 4
 pop temp 0
 push constant 0
@@ -55,9 +59,13 @@ push this 1
 push this 0
 push this 2
 add
+push constant 1
+sub
 push this 1
 push this 2
 add
+push constant 1
+sub
 call Screen.drawRectangle 4
 pop temp 0
 push constant 0
@@ -72,6 +80,11 @@ push argument 0
 pop pointer 0
 push this 1
 return
+function Ball.getSize 0
+push argument 0
+pop pointer 0
+push this 2
+return
 function Ball.move 0
 push argument 0
 pop pointer 0
@@ -82,10 +95,50 @@ push this 0
 push this 3
 add
 pop this 0
+push this 0
+push constant 504
+gt
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 504
+pop this 0
+label IF_FALSE0
+push this 0
+push constant 0
+lt
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push constant 0
+pop this 0
+label IF_FALSE1
 push this 1
 push this 4
 add
 pop this 1
+push this 1
+push constant 0
+lt
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push constant 0
+pop this 1
+label IF_FALSE2
+push this 1
+push this 2
+add
+push constant 255
+gt
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push constant 255
+push this 2
+sub
+pop this 1
+label IF_FALSE3
 push pointer 0
 call Ball.draw 1
 pop temp 0
@@ -119,16 +172,18 @@ eq
 if-goto IF_TRUE2
 goto IF_FALSE2
 label IF_TRUE2
-push this 0
-push constant 1
+push this 3
 neg
-call Math.multiply 2
-pop this 0
+pop this 3
+push this 1
+push argument 2
+gt
 push this 1
 push argument 2
 push constant 20
 add
 lt
+and
 if-goto IF_TRUE3
 goto IF_FALSE3
 label IF_TRUE3
@@ -142,11 +197,11 @@ push constant 20
 add
 gt
 push this 1
-and
 push argument 2
-push constant 40
+push constant 30
 add
 lt
+and
 if-goto IF_TRUE4
 goto IF_FALSE4
 label IF_TRUE4
@@ -155,9 +210,15 @@ pop this 4
 label IF_FALSE4
 push this 1
 push argument 2
-push constant 40
+push constant 30
 add
 gt
+push this 1
+push argument 2
+push constant 50
+add
+lt
+and
 if-goto IF_TRUE5
 goto IF_FALSE5
 label IF_TRUE5
