@@ -146,12 +146,12 @@ class PongGame {
                     do resetBall(2);
                 }
 
-                if (score1 > 5)
+                if (score1 = 5)
                 {
                     let exit = true;
                     do printWinner(1);
                 }
-                if (score2 > 5)
+                if (score2 = 5)
                 {
                     let exit = true;
                     do printWinner(2);
@@ -221,12 +221,12 @@ class PongGame {
                     do resetBall(2);
                 }
 
-                if (score1 > 5)
+                if (score1 = 5)
                 {
                     let exit = true;
                     do printWinner(1);
                 }
-                if (score2 > 5)
+                if (score2 = 5)
                 {
                     let exit = true;
                     do printWinner(2);
