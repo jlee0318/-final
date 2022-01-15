@@ -3,10 +3,8 @@ class PongGame {
     field Bat bat1;
     field Bat bat2;
     field Ball ball;
-    field int wall;
     field boolean exit;
     field int score1, score2;
-    field int lastWall;
     field int batWidth;
     field int batheight;
     field int ballX, ballY, batY;
@@ -24,8 +22,6 @@ class PongGame {
         let score1 = 0;
         let score2 = 0;
         do showScore();
-        let wall = 0;
-        let lastWall = 0;
 
         return this;
     }
