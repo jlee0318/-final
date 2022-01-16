@@ -53,14 +53,6 @@ class Bat
         return width;
     }
 
-    method void setWidth(int Awidth) 
-    {
-        do erase();
-	    let width = Awidth;
-        do draw();
-        return;
-    }
-
     method void move() 
     {
 	    if (direction = 1) 

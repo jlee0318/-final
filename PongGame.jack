@@ -26,19 +26,12 @@ class PongGame {
         return this;
     }
 
-    method void dispose() {
+    method void dispose() 
+    {
         do bat.dispose();
+        do ball.dispose();
         do Memory.deAlloc(this);
         return;
-    }
-
-    function void newInstance() {
-        let instance = PongGame.new();
-        return;
-    }
-    
-    function PongGame getInstance() {
-        return instance;
     }
 
     method void showScore()
@@ -229,7 +222,6 @@ class PongGame {
                 }
             }
         }
-
             
         return;
     }
